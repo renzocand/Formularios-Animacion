@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .porcentaje {
+            display: flex;
+            /* height: 250px; */
+            flex-wrap: wrap-reverse;
+            background: #C4C4C4;
+            width: 50px;
+            z-index: 10;
+        }
+
+        .level {
+            background: #2646FF;
+            width: 50px;
+            height: 0;
+        }
+
+        .inicio {
+            height: 0%;
+        }
+
+        .intermedio {
+            height: 50%;
+        }
+
+        .final {
+            height: 100%;
+        }
+
+        .animacion {
+            transition: all 2s ease .5s;
+        }
+
+        .hombre {
+            height: 70%;
+            position: absolute;
+            bottom: 0;
+            left: 60px;
+            z-index: 1;
+        }
+    </style>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <h1>Hello, world!</h1>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="myModalLabel">UsimpleX</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid mt-3">
+                        <div class="row">
+                            <div class="col-md-6" id="alto">
+                                <div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Enter email">
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email
+                                            with anyone else.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    </div>
+                                    <button class="btn btn-primary" id="boton">
+                                        animar
+                                    </button>
+                                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                                </div>
+                            </div>
+                            <div class="col-md-4 ml-auto row">
+                                <div class="porcentaje">
+                                    <div class="level inicio animacion"></div>
+                                </div>
+                                <div class="reverse">
+                                    <img src="./img/Persona.svg" class="img-fluid hombre" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+
+        <script>
+
+            const porcentaje = document.querySelector('.porcentaje');
+            const level = document.querySelector('.level');
+
+            function animar() {
+                level.classList.toggle("final");
+            }
+
+            document.getElementById('boton').onclick = () => {
+                animar();
+            }
+
+            $('#myModal').on('shown.bs.modal', function () {
+
+                var modalContentWidthHeight = function () {
+
+                    var modalContentHeight = $('#myModal').find('#alto').outerHeight(true);
+                    let enpix = modalContentHeight + 'px';
+                    console.log('la altura es ' + enpix);
+                    porcentaje.style.height = enpix;
+                };
+
+                $(window).resize(modalContentWidthHeight);
+
+                modalContentWidthHeight()
+
+            });
+
+
+        </script>
+
+</body>
+
+</html>
