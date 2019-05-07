@@ -41,24 +41,31 @@ let validacion = () => {
             level.classList.add("setenta")
             if (check.checked == true) {
                 level.classList.add("cien")
+                return true;
             } else {
                 level.classList.remove("cien")
+                return false;
             }
         } else {
             level.classList.remove("setenta")
             level.classList.remove("cien")
+            return false;
         }
     } else {
         level.classList.remove("treinta")
         level.classList.remove("setenta")
         level.classList.remove("cien")
+        return false;
     }
 }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let name = document.querySelector('#name').value;
-    let correo = document.querySelector('#email').value;
+    if(validacion()){
+        console.log('entro');
+    }else{
+        console.log('NO ENTRO');
+    }
 
 })
 
