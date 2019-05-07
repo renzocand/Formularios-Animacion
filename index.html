@@ -29,11 +29,15 @@
             height: 0%;
         }
 
-        .intermedio {
-            height: 50%;
+        .treinta {
+            height: 30%;
         }
 
-        .final {
+        .setenta {
+            height: 70%;
+        }
+
+        .cien {
             height: 100%;
         }
 
@@ -75,28 +79,27 @@
                     <div class="container-fluid mt-3">
                         <div class="row">
                             <div class="col-md-6" id="alto">
-                                <div>
+                                <form id="form">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Enter email">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email
-                                            with anyone else.</small>
+                                        <label for="exampleInputEmail1">Nombre</label>
+                                        <input type="text" class="form-control event" id="name"
+                                            aria-describedby="emailHelp" placeholder="Tu nombre">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Password">
+                                        <label for="exampleInputEmail1">Correo</label>
+                                        <input type="email" class="form-control event" id="email"
+                                            aria-describedby="emailHelp" placeholder="alguien@ejemplo.com">
+                                        <small id="emailHelp" class="form-text text-muted">Nosotros no daremos a nadie tu correo</small>
                                     </div>
                                     <div class="form-group form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        <input type="checkbox" class="form-check-input" id="check">
+                                        <label class="form-check-label" for="check">Acepto la política de privacidad</label>
                                     </div>
-                                    <button class="btn btn-primary" id="boton">
-                                        animar
+                                    <button type="submit" class="btn btn-primary" >
+                                        Quiero mi diseño
                                     </button>
                                     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                                </div>
+                                </form>
                             </div>
                             <div class="col-md-4 ml-auto row">
                                 <div class="porcentaje">
@@ -124,39 +127,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-
-
-        <script>
-
-            const porcentaje = document.querySelector('.porcentaje');
-            const level = document.querySelector('.level');
-
-            function animar() {
-                level.classList.toggle("final");
-            }
-
-            document.getElementById('boton').onclick = () => {
-                animar();
-            }
-
-            $('#myModal').on('shown.bs.modal', function () {
-
-                var modalContentWidthHeight = function () {
-
-                    var modalContentHeight = $('#myModal').find('#alto').outerHeight(true);
-                    let enpix = modalContentHeight + 'px';
-                    console.log('la altura es ' + enpix);
-                    porcentaje.style.height = enpix;
-                };
-
-                $(window).resize(modalContentWidthHeight);
-
-                modalContentWidthHeight()
-
-            });
-
-
-        </script>
+        <script src="app.js"></script>
 
 </body>
 
